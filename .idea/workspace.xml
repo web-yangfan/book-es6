@@ -2,49 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43cae888-f62b-43ec-8684-0932cb0a8ecc" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/book-es6.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/SUMMARY.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/.gitignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/.idea/book-es6.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/fonts/fontawesome/FontAwesome.otf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/fonts/fontawesome/fontawesome-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/fonts/fontawesome/fontawesome-webfont.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/fonts/fontawesome/fontawesome-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/fonts/fontawesome/fontawesome-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/fonts/fontawesome/fontawesome-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/gitbook-plugin-fontsettings/fontsettings.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/gitbook-plugin-fontsettings/website.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/gitbook-plugin-highlight/ebook.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/gitbook-plugin-highlight/website.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/gitbook-plugin-livereload/plugin.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/gitbook-plugin-lunr/lunr.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/gitbook-plugin-lunr/search-lunr.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/gitbook-plugin-search/lunr.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/gitbook-plugin-search/search-engine.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/gitbook-plugin-search/search.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/gitbook-plugin-search/search.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/gitbook-plugin-sharing/buttons.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/gitbook.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/images/apple-touch-icon-precomposed-152.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/images/favicon.ico" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/style.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/gitbook/theme.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/one/1-1.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/one/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/_book/search_index.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/book.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/one/1-1.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/one/index.md" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/_book/.idea/book-es6.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/_book/.idea/modules.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/_book/.idea/vcs.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/_book/.idea/workspace.xml" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -158,11 +119,6 @@
               <item name="book-es6" type="b2602c69:ProjectViewProjectNode" />
               <item name="book-es6" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="book-es6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="book-es6" type="462c0819:PsiDirectoryNode" />
-              <item name="one" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -201,18 +157,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1524578379806</updated>
-      <workItem from="1524578381794" duration="756000" />
+      <workItem from="1524578381794" duration="795000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="756000" />
+    <option name="totallyTimeSpent" value="795000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="28" y="23" width="1400" height="824" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24945612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24945612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
