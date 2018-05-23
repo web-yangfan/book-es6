@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>第一章 块级作用域 · webpack3</title>
+        <title>第一章 块级作用域 · 深入理解ES6阅读笔记</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -113,6 +113,32 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    第二章 字符串和正则表达式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../three/">
+            
+                <a href="../three/">
+            
+                    
+                    第三章 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -160,12 +186,12 @@
                                 
                                 <h2 id="&#x4F5C;&#x7528;&#x57DF;">&#x4F5C;&#x7528;&#x57DF;</h2>
 <ul>
-<li>&#x7B2C;&#x4E00;&#x6761; js &#x51FD;&#x6570;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;</li>
-<li>&#x7B2C;&#x4E8C;&#x6761; &#x53D8;&#x91CF;&#x7684;&#x67E5;&#x627E;&#x662F;&#x5C31;&#x8FD1;&#x539F;&#x5219;&#xFF0C;&#x53BB;&#x5BFB;&#x627E;var&#x5B9A;&#x4E49;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5F53;&#x5C31;&#x8FD1;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x53BB;&#x67E5;&#x627E;&#x5916;&#x5C42;&#x3002;</li>
+<li>&#x51FD;&#x6570;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;</li>
+<li>&#x53D8;&#x91CF;&#x7684;&#x67E5;&#x627E;&#x662F;&#x5C31;&#x8FD1;&#x539F;&#x5219;&#xFF0C;&#x53BB;&#x5BFB;&#x627E;var&#x5B9A;&#x4E49;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5F53;&#x5C31;&#x8FD1;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x53BB;&#x67E5;&#x627E;&#x5916;&#x5C42;&#x3002;</li>
 <li>&#x5F53;&#x53C2;&#x6570;&#x8DDF;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x91CD;&#x540D;&#x65F6;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x662F;&#x7B49;&#x540C;&#x7684;</li>
 <li>es6&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;let &#x548C; const</li>
 </ul>
-<h5 id="&#x51FD;&#x6570;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;">&#x51FD;&#x6570;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;</h5>
+<h4 id="&#x4E00;&#x3001;&#x51FD;&#x6570;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;">&#x4E00;&#x3001;&#x51FD;&#x6570;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;</h4>
 <pre><code class="lang-js">  <span class="hljs-keyword">var</span> a = <span class="hljs-number">10</span>;
   <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">aaa</span> (<span class="hljs-params"></span>) </span>{
     alert(a);
@@ -184,7 +210,7 @@
   alert(b); <span class="hljs-comment">// 10, &#x56E0;&#x4E3A;a = b = 10 b&#x5C31;&#x7B49;&#x4E8E;window.a = 10</span>
 </code></pre>
 <p><br></p>
-<h5 id="&#x53D8;&#x91CF;&#x7684;&#x67E5;&#x627E;&#x662F;&#x5C31;&#x8FD1;&#x539F;&#x5219;">&#x53D8;&#x91CF;&#x7684;&#x67E5;&#x627E;&#x662F;&#x5C31;&#x8FD1;&#x539F;&#x5219;</h5>
+<h4 id="&#x4E8C;&#x3001;&#x53D8;&#x91CF;&#x7684;&#x67E5;&#x627E;&#x662F;&#x5C31;&#x8FD1;&#x539F;&#x5219;&#xFF0C;&#x53BB;&#x5BFB;&#x627E;var&#x5B9A;&#x4E49;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5F53;&#x5C31;&#x8FD1;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x53BB;&#x67E5;&#x627E;&#x5916;&#x5C42;&#x3002;">&#x4E8C;&#x3001;&#x53D8;&#x91CF;&#x7684;&#x67E5;&#x627E;&#x662F;&#x5C31;&#x8FD1;&#x539F;&#x5219;&#xFF0C;&#x53BB;&#x5BFB;&#x627E;var&#x5B9A;&#x4E49;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5F53;&#x5C31;&#x8FD1;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x53BB;&#x67E5;&#x627E;&#x5916;&#x5C42;&#x3002;</h4>
 <pre><code class="lang-js">  <span class="hljs-keyword">var</span> a = <span class="hljs-number">10</span>;
   <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">aaa</span> (<span class="hljs-params"></span>) </span>{
     alert(a); <span class="hljs-comment">// undefined &#x67E5;&#x627E;a&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x73B0;&#x5728;&#x51FD;&#x6570;&#x5185;&#x67E5;&#x627E;&#xFF0C;&#x7531;&#x4E8E;&#x9884;&#x89E3;&#x6790;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x6B64;&#x65F6;&#x7684;a&#x662F;undefined,&#x56E0;&#x6B64;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x53BB;&#x67E5;&#x627E;&#x5916;&#x9762;&#x7684;10&#x4E86;</span>
@@ -194,22 +220,25 @@
 
 
 
-<span class="hljs-comment">// &#x8FD9;&#x4E2A;&#x5427;&#xFF0C;&#x5C31;&#x9A8C;&#x8BC1;&#x4E86;&#x7B2C;&#x4E8C;&#x6761;&#xFF0C;&#x867D;&#x7136;&#x662F;&#x5C31;&#x8FD1;&#x539F;&#x5219;&#xFF0C;&#x4F46;&#x662F;&#x662F;&#x5C31;&#x8FD1;&#x627E;var&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x8FD9;&#x4E2A;&#x662F;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;var&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#x662F;&#x5168;&#x5C40;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x53EA;&#x662F;&#x4FEE;&#x6539;&#x4E86;a&#x7684;&#x503C;&#x3002;&#x6240;&#x4EE5;&#x4E0A;&#x9762;&#x5C31;&#x662F;&#x56E0;&#x4E3A;&#x5728;&#x51FD;&#x6570;&#x5185;&#x6CA1;&#x627E;&#x5230;var&#x7684;a&#xFF0C;&#x4E8E;&#x662F;&#x5230;&#x5916;&#x9762;&#x53BB;&#x627E;&#x4E86;&#xFF0C;&#x4E00;&#x627E;&#x5C31;&#x627E;&#x5230;&#x4E86;&#xFF0C;&#x4E8E;&#x662F;a&#x5C31;alert&#x51FA;10&#x4E86;&#xFF1B;&#x4E0D;&#x8FC7;&#x6CA1;&#x9519;&#x7684;&#x662F;a=20&#x540E;&#xFF0C;a&#x786E;&#x5B9E;&#x4E3A;20&#x4E86;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;alert&#x7684;&#x65F6;&#x5019;&#x8FD8;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x5230;&#x90A3;~~</span>
+<span class="hljs-comment">// &#x8FD9;&#x4E2A;&#x5427;&#xFF0C;&#x867D;&#x7136;&#x662F;&#x5C31;&#x8FD1;&#x539F;&#x5219;&#xFF0C;&#x4F46;&#x662F;&#x662F;&#x5C31;&#x8FD1;&#x627E;var&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x8FD9;&#x4E2A;&#x662F;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;var&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#x662F;&#x5168;&#x5C40;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x53EA;&#x662F;&#x4FEE;&#x6539;&#x4E86;a&#x7684;&#x503C;&#x3002;&#x6240;&#x4EE5;&#x4E0A;&#x9762;&#x5C31;&#x662F;&#x56E0;&#x4E3A;&#x5728;&#x51FD;&#x6570;&#x5185;&#x6CA1;&#x627E;&#x5230;var&#x7684;a&#xFF0C;&#x4E8E;&#x662F;&#x5230;&#x5916;&#x9762;&#x53BB;&#x627E;&#x4E86;&#xFF0C;&#x4E00;&#x627E;&#x5C31;&#x627E;&#x5230;&#x4E86;&#xFF0C;&#x4E8E;&#x662F;a&#x5C31;alert&#x51FA;10&#x4E86;&#xFF1B;&#x4E0D;&#x8FC7;&#x6CA1;&#x9519;&#x7684;&#x662F;a=20&#x540E;&#xFF0C;a&#x786E;&#x5B9E;&#x4E3A;20&#x4E86;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;alert&#x7684;&#x65F6;&#x5019;&#x8FD8;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x5230;&#x90A3;~~</span>
  <span class="hljs-keyword">var</span> a = <span class="hljs-number">10</span>
   <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">aaa</span> (<span class="hljs-params"></span>) </span>{
     alert(a); <span class="hljs-comment">// 10</span>
     a = <span class="hljs-number">20</span>
   }
   aaa()
-
-<span class="hljs-keyword">var</span> a = <span class="hljs-number">10</span>
+</code></pre>
+<p><br></p>
+<h4 id="&#x4E09;&#x3001;&#x5F53;&#x53C2;&#x6570;&#x8DDF;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x91CD;&#x540D;&#x65F6;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x662F;&#x7B49;&#x540C;&#x7684;">&#x4E09;&#x3001;&#x5F53;&#x53C2;&#x6570;&#x8DDF;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x91CD;&#x540D;&#x65F6;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x662F;&#x7B49;&#x540C;&#x7684;</h4>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">10</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">aaa</span> (<span class="hljs-params">a</span>) </span>{
   alert(a); <span class="hljs-comment">// 10</span>
   <span class="hljs-keyword">var</span> a = <span class="hljs-number">20</span>;
 }
 aaa(a)
-
-<span class="hljs-keyword">var</span> out = <span class="hljs-number">25</span>,
+</code></pre>
+<h6 id="&#x5176;&#x4ED6;&#x4F8B;&#x5B50;">&#x5176;&#x4ED6;&#x4F8B;&#x5B50;</h6>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> out = <span class="hljs-number">25</span>,
 inner = {
   out: <span class="hljs-number">20</span>,
   func: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
@@ -224,15 +253,15 @@ inner = {
 <span class="hljs-built_in">console</span>.log((inner.func = inner.func)()); <span class="hljs-comment">// 25*/</span>
 </code></pre>
 <p><br></p>
-<h4 id="es6&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;let-&#x548C;-const">es6&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;let &#x548C; const</h4>
-<h5 id="&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x5B58;&#x5728;&#x57DF;-&#x51FD;&#x6570;&#x5185;&#x90E8;&#x548C;-&#x4E4B;&#x95F4;&#x7684;&#x533A;&#x57DF;">&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x5B58;&#x5728;&#x57DF; &#x51FD;&#x6570;&#x5185;&#x90E8;&#x548C; &quot;{}&quot;&#x4E4B;&#x95F4;&#x7684;&#x533A;&#x57DF;</h5>
+<h4 id="&#x56DB;&#x3001;-es6&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;let-&#x548C;-const">&#x56DB;&#x3001; es6&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;let &#x548C; const</h4>
+<h6 id="1&#x3001;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x5B58;&#x5728;&#x57DF;-&#x51FD;&#x6570;&#x5185;&#x90E8;&#x548C;-&#x4E4B;&#x95F4;&#x7684;&#x533A;&#x57DF;">1&#x3001;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x5B58;&#x5728;&#x57DF; &#x51FD;&#x6570;&#x5185;&#x90E8;&#x548C; &quot;{}&quot;&#x4E4B;&#x95F4;&#x7684;&#x533A;&#x57DF;</h6>
 <pre><code class="lang-js">{
   <span class="hljs-keyword">let</span> a = <span class="hljs-number">10</span>;
 }
 <span class="hljs-built_in">console</span>.log(a) <span class="hljs-comment">// error a is not defined</span>
 </code></pre>
 <p><br></p>
-<h5 id="&#x540C;&#x4E00;&#x4F5C;&#x7528;&#x57DF;&#x7981;&#x6B62;&#x91CD;&#x590D;&#x58F0;&#x660E;">&#x540C;&#x4E00;&#x4F5C;&#x7528;&#x57DF;&#x7981;&#x6B62;&#x91CD;&#x590D;&#x58F0;&#x660E;</h5>
+<h6 id="2&#x3001;&#x540C;&#x4E00;&#x4F5C;&#x7528;&#x57DF;&#x7981;&#x6B62;&#x91CD;&#x590D;&#x58F0;&#x660E;">2&#x3001;&#x540C;&#x4E00;&#x4F5C;&#x7528;&#x57DF;&#x7981;&#x6B62;&#x91CD;&#x590D;&#x58F0;&#x660E;</h6>
 <pre><code class="lang-js">  <span class="hljs-keyword">var</span> count = <span class="hljs-number">30</span>;
   <span class="hljs-keyword">let</span> count = <span class="hljs-number">20</span>; <span class="hljs-comment">// &#x629B;&#x51FA;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;</span>
 
@@ -242,14 +271,17 @@ inner = {
    <span class="hljs-built_in">console</span>.log(count); <span class="hljs-comment">// 20</span>
  }
 </code></pre>
-<h5 id="const-&#x662F;&#x5E38;&#x91CF;&#x7528;&#xFF0C;&#x5176;&#x503C;&#x4E00;&#x65E6;&#x88AB;&#x5B9A;&#x4E49;&#x5C31;&#x4E0D;&#x53EF;&#x4EE5;&#x66F4;&#x6539;">const &#x662F;&#x5E38;&#x91CF;&#x7528;&#xFF0C;&#x5176;&#x503C;&#x4E00;&#x65E6;&#x88AB;&#x5B9A;&#x4E49;&#x5C31;&#x4E0D;&#x53EF;&#x4EE5;&#x66F4;&#x6539;</h5>
+<p><br></p>
+<h6 id="3&#x3001;const-&#x662F;&#x5E38;&#x91CF;&#x7528;&#xFF0C;&#x5176;&#x503C;&#x4E00;&#x65E6;&#x88AB;&#x5B9A;&#x4E49;&#x5C31;&#x4E0D;&#x53EF;&#x4EE5;&#x66F4;&#x6539;">3&#x3001;const &#x662F;&#x5E38;&#x91CF;&#x7528;&#xFF0C;&#x5176;&#x503C;&#x4E00;&#x65E6;&#x88AB;&#x5B9A;&#x4E49;&#x5C31;&#x4E0D;&#x53EF;&#x4EE5;&#x66F4;&#x6539;</h6>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> a = <span class="hljs-number">10</span>;
 a = <span class="hljs-number">20</span>; <span class="hljs-comment">// &#x8BED;&#x6CD5;&#x9519;&#x8BEF;</span>
 </code></pre>
-<h5 id="onst-&#x58F0;&#x660E;&#x7684;&#x5E38;&#x91CF;&#x5FC5;&#x987B;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;">onst &#x58F0;&#x660E;&#x7684;&#x5E38;&#x91CF;&#x5FC5;&#x987B;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;</h5>
+<p><br></p>
+<h6 id="4&#x3001;onst-&#x58F0;&#x660E;&#x7684;&#x5E38;&#x91CF;&#x5FC5;&#x987B;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;">4&#x3001;onst &#x58F0;&#x660E;&#x7684;&#x5E38;&#x91CF;&#x5FC5;&#x987B;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;</h6>
 <pre><code class="lang-js"> <span class="hljs-keyword">const</span> a; <span class="hljs-comment">// &#x8BED;&#x6CD5;&#x9519;&#x8BEF;</span>
 </code></pre>
-<h5 id="const-&#x5176;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x88AB;&#x4FEE;&#x6539;">const &#x5176;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x88AB;&#x4FEE;&#x6539;</h5>
+<p><br></p>
+<h6 id="5&#x3001;const-&#x5176;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x88AB;&#x4FEE;&#x6539;">5&#x3001;const &#x5176;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x88AB;&#x4FEE;&#x6539;</h6>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> a = {
   b: <span class="hljs-number">12</span>
 };
@@ -295,7 +327,8 @@ a.b = <span class="hljs-number">13</span>;
     func(); <span class="hljs-comment">// &#x8F93;&#x51FA; 0,1,2 .... 9</span>
   })
 </code></pre>
-<h5 id="const-&#x5168;&#x5C40;&#x5757;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x7ED1;&#x5B9A;">const &#x5168;&#x5C40;&#x5757;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x7ED1;&#x5B9A;</h5>
+<p><br></p>
+<h6 id="6&#x3001;-const-&#x5168;&#x5C40;&#x5757;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x7ED1;&#x5B9A;">6&#x3001; const &#x5168;&#x5C40;&#x5757;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x7ED1;&#x5B9A;</h6>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-built_in">RegExp</span> = <span class="hljs-string">&quot;Hello&quot;</span>;
 <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">window</span>.RegExp) <span class="hljs-comment">// Hello &#x8986;&#x76D6;window&#x7684;&#x503C;</span>
 
@@ -343,7 +376,7 @@ a.b = <span class="hljs-number">13</span>;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"第一章 块级作用域","level":"1.2","depth":1,"previous":{"title":"阅读深入理解ES6笔记","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"webpack3","language":"zh-hans","gitbook":"*","description":"深入浅出 Webpack"},"file":{"path":"one/index.md","mtime":"2018-05-01T13:59:30.911Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-01T13:58:39.160Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"第一章 块级作用域","level":"1.2","depth":1,"next":{"title":"第二章 字符串和正则表达式","level":"1.3","depth":1,"ref":"","articles":[]},"previous":{"title":"阅读深入理解ES6笔记","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"深入理解ES6阅读笔记","language":"zh-hans","gitbook":"*","description":"深入理解ES6阅读笔记"},"file":{"path":"one/index.md","mtime":"2018-05-14T14:44:14.154Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-23T15:39:38.178Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

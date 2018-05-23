@@ -1,6 +1,6 @@
 {
-  "title": "webpack3",
-  "description": "深入浅出 Webpack",
+  "title": "深入理解ES6阅读笔记",
+  "description": "深入理解ES6阅读笔记",
   "language" : "zh-hans",
   "plugins": [
     "highlight"

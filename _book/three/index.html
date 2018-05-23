@@ -1,0 +1,436 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>第三章 函数 · 深入理解ES6阅读笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    阅读深入理解ES6笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../one/">
+            
+                <a href="../one/">
+            
+                    
+                    第一章 块级作用域
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    第二章 字符串和正则表达式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第三章 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >第三章 函数</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x51FD;&#x6570;">&#x51FD;&#x6570;</h2>
+<ol>
+<li>&#x9ED8;&#x8BA4;&#x53C2;&#x6570;<ul>
+<li>&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;</li>
+<li>&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x8868;&#x8FBE;&#x5F0F;</li>
+<li>&#x4E0D;&#x5B9A;&#x53C2;&#x6570;</li>
+<li>&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x503C;&#x5BF9;arguments&#x7684;&#x5F71;&#x54CD;</li>
+</ul>
+</li>
+<li>&#x7BAD;&#x5934;&#x51FD;&#x6570;
+<br></li>
+</ol>
+<hr>
+<h3 id="&#x9ED8;&#x8BA4;&#x53C2;&#x6570;">&#x9ED8;&#x8BA4;&#x53C2;&#x6570;</h3>
+<h4 id="1-&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;">1. &#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;</h4>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">makeRequest</span> (<span class="hljs-params">url, timeout = 2000, callback = function (</span>) </span>{}) {
+
+};
+
+<span class="hljs-comment">// &#x4F7F;&#x7528;timeout&#x548C;callback &#x53C2;&#x6570;&#x4E3A;&#x9ED8;&#x8BA4;&#x503C;</span>
+makeRequest(<span class="hljs-string">&apos;/foo&apos;</span>);
+
+<span class="hljs-comment">// &#x4F7F;&#x7528;callback &#x53C2;&#x6570;&#x4E3A;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;</span>
+makeRequest(<span class="hljs-string">&apos;/foo&apos;</span>, <span class="hljs-number">500</span>);
+
+<span class="hljs-comment">// &#x4E0D;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;</span>
+makeRequest(<span class="hljs-string">&apos;/foo&apos;</span>, <span class="hljs-number">500</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">body</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(body);
+});
+
+<span class="hljs-comment">// &#x4E0D;&#x4F7F;&#x7528;timeout&#x7684;&#x9ED8;&#x8BA4;&#x503C;</span>
+makeRequest(<span class="hljs-string">&apos;/foo&apos;</span>, <span class="hljs-literal">null</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">body</span>) </span>{
+
+});
+
+<span class="hljs-comment">// &#x4E0D;&#x4F7F;&#x7528;timeout&#x7684;&#x9ED8;&#x8BA4;&#x503C;</span>
+makeRequest(<span class="hljs-string">&apos;/foo&apos;</span>, <span class="hljs-literal">undefined</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">body</span>) </span>{
+
+});
+</code></pre>
+<p><br></p>
+<h4 id="2-&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x8868;&#x8FBE;&#x5F0F;">2. &#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x8868;&#x8FBE;&#x5F0F;</h4>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addFirst</span>(<span class="hljs-params">first, second = first + 1</span>) </span>{
+    <span class="hljs-keyword">return</span> first + second;
+};
+<span class="hljs-built_in">console</span>.log(addFirst(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 3</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addSecond</span>(<span class="hljs-params">first, second = first</span>) </span>{
+    <span class="hljs-keyword">return</span> addSecond + second;
+};
+<span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 2</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addThree</span> (<span class="hljs-params">first = second, second</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(first);
+    <span class="hljs-keyword">return</span> first + second;
+}
+<span class="hljs-comment">// &#x56E0;&#x4E3A;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x7684;&#x4E34;&#x65F6;&#x6B7B;&#x533A; &#x629B;&#x51FA;&#x5F02;&#x5E38;</span>
+<span class="hljs-comment">/*
+ &#x8868;&#x793A;&#x8C03;&#x7528;addThree(undefined, 1)&#x7684; javascript &#x4EE3;&#x7801;&#xFF1A;
+ let first = second;
+ let second = 1;
+ &#x6240;&#x6709;&#x4F1A;&#x62A5;&#x9519;
+*/</span>
+<span class="hljs-built_in">console</span>.log(addThree(<span class="hljs-literal">undefined</span>, <span class="hljs-number">1</span>));
+</code></pre>
+<p><br></p>
+<h4 id="3-&#x4E0D;&#x5B9A;&#x53C2;&#x6570;">3. &#x4E0D;&#x5B9A;&#x53C2;&#x6570;</h4>
+<ol>
+<li>&#x4E0D;&#x5B9A;&#x8695;&#x98DF;&#x4E3A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;</li>
+<li>&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x53EA;&#x80FD;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x4E0D;&#x5B9A;&#x53C2;&#x6570;</li>
+<li>&#x4E0D;&#x5B9A;&#x53C2;&#x6570;&#x4E00;&#x5B9A;&#x8981;&#x5728;&#x6240;&#x6709;&#x53C2;&#x6570;&#x7684;&#x672B;&#x5C3E;</li>
+<li>&#x4E0D;&#x5B9A;&#x53C2;&#x6570;&#x4E0D;&#x80FD;&#x7528;&#x4E8E;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;setter&#x4E4B;&#x4E2D;</li>
+</ol>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pick</span> (<span class="hljs-params">first, ...second</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(first); <span class="hljs-comment">// 1</span>
+    <span class="hljs-built_in">console</span>.log(second); <span class="hljs-comment">// [3, 4, 5, 6]</span>
+};
+
+pick(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>);
+
+<span class="hljs-keyword">let</span> pick = {
+    set getValue (...value) {
+        <span class="hljs-built_in">console</span>.log(value); <span class="hljs-comment">// &#x629B;&#x51FA;&#x5F02;&#x5E38;</span>
+    }
+};
+pick.getValue(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>);
+</code></pre>
+<p><br></p>
+<h4 id="4-&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x503C;&#x5BF9;arguments&#x7684;&#x5F71;&#x54CD;">4. &#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x503C;&#x5BF9;arguments&#x7684;&#x5F71;&#x54CD;</h4>
+<pre><code class="lang-js"><span class="hljs-comment">// first&#x548C;second&#x88AB;&#x8D4B;&#x4E88;&#x65B0;&#x503C;&#xFF0C;arguments[0]&#x548C; arguments[1]&#x76F8;&#x5E94;&#x5730;&#x4E5F;&#x66F4;&#x65B0;&#x4E86;</span>
+<span class="hljs-comment">// &#x5728;ECMAScript5&#x7684;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#xFF0C;argument&#x5BF9;&#x8C61;&#x4E0D;&#x4F1A;&#x968F;&#x4E4B;&#x6539;&#x53D8;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mixArgs</span> (<span class="hljs-params">first, second</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(first === <span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>]);  <span class="hljs-comment">// true</span>
+  <span class="hljs-built_in">console</span>.log(second === <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>]); <span class="hljs-comment">// true</span>
+  first = <span class="hljs-string">&apos;c&apos;</span>;
+  second = <span class="hljs-string">&apos;d&apos;</span>;
+  <span class="hljs-built_in">console</span>.log(first === <span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>]); <span class="hljs-comment">// true</span>
+  <span class="hljs-built_in">console</span>.log(second === <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>]) <span class="hljs-comment">// true</span>
+}
+
+mixArgs(<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span>);
+
+
+
+
+<span class="hljs-comment">// ECMAScript6&#x4E2D; &#x51FD;&#x6570;&#x4F7F;&#x7528;&#x4E86;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x503C;argument&#x5BF9;&#x8C61;&#x4E0D;&#x4F1A;&#x968F;&#x7740;&#x53C2;&#x6570;&#x503C;&#x6539;&#x53D8;&#x800C;&#x6539;&#x53D8;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mixArgs</span> (<span class="hljs-params">first, second = &apos;y&apos;</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(first === <span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>]); <span class="hljs-comment">// true</span>
+  <span class="hljs-built_in">console</span>.log(second === <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>]); <span class="hljs-comment">// true</span>
+  first = <span class="hljs-string">&apos;c&apos;</span>;
+  second = <span class="hljs-string">&apos;d&apos;</span>;
+  <span class="hljs-built_in">console</span>.log(first === <span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>]);  <span class="hljs-comment">// false</span>
+  <span class="hljs-built_in">console</span>.log(second === <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>]); <span class="hljs-comment">// false</span>
+}
+
+mixArgs(<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span>);
+</code></pre>
+<p><br></p>
+<hr>
+<h3 id="&#x7BAD;&#x5934;&#x51FD;&#x6570;">&#x7BAD;&#x5934;&#x51FD;&#x6570;</h3>
+<ul>
+<li>&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x6CA1;&#x6709; this&#x3001;super&#x3001;arguments&#x3001;new.target&#xFF0C;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4E2D;&#x7684;this&#x3001;super&#x3001;arguments&#x3001;new.target&#x8FD9;&#x4E9B;&#x503C;&#x7531;&#x5916;&#x56F4;&#x6700;&#x8FD1;&#x4E00;&#x5C42;&#x975E;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x51B3;&#x5B9A;&#x7684;</li>
+<li>&#x4E0D;&#x80FD;&#x901A;&#x8FC7;new&#x5173;&#x952E;&#x5B57;&#x8C03;&#x7528;&#xFF0C;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x6CA1;&#x6709;[[Construct]]</li>
+<li>&#x6CA1;&#x6709;&#x539F;&#x578B;</li>
+<li>&#x4E0D;&#x652F;&#x6301;&#x91CD;&#x590D;&#x7684;&#x547D;&#x540D;&#x53C2;&#x6570;</li>
+</ul>
+<h6 id="&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x8BED;&#x6CD5;&#x591A;&#x53D8;&#x6240;&#x6709;&#x53D8;&#x79CD;&#x90FD;&#x7531;&#xFF1A;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x3001;&#x7BAD;&#x5934;&#x3001;&#x51FD;&#x6570;&#x4F53;&#x7EC4;&#x6210;"><font color="#9E1316">&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x8BED;&#x6CD5;&#x591A;&#x53D8;&#x6240;&#x6709;&#x53D8;&#x79CD;&#x90FD;&#x7531;&#xFF1A;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x3001;&#x7BAD;&#x5934;&#x3001;&#x51FD;&#x6570;&#x4F53;&#x7EC4;&#x6210;</font></h6>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> reflect = value =&gt; value;
+<span class="hljs-comment">// &#x7B49;&#x4E8E;</span>
+<span class="hljs-keyword">let</span> reflect = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>{
+    <span class="hljs-keyword">return</span> value;
+};
+
+
+<span class="hljs-keyword">let</span> sum = (num1, num2) =&gt; num1 + num2;
+<span class="hljs-comment">// &#x7B49;&#x4E8E;</span>
+<span class="hljs-keyword">let</span> sum = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">num1, num2</span>) </span>{
+    <span class="hljs-keyword">return</span> num1 + num2;
+}
+
+
+<span class="hljs-keyword">let</span> getName = () =&gt; <span class="hljs-string">&apos;Nicholas&apos;</span>;
+<span class="hljs-comment">// &#x7B49;&#x4E8E;</span>
+<span class="hljs-keyword">let</span> getName = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Nicholas&apos;</span>;
+}
+
+
+<span class="hljs-keyword">let</span> sum = (num1, num2) =&gt; {
+    <span class="hljs-keyword">return</span> num1 + num1;
+}
+<span class="hljs-comment">// &#x7B49;&#x4E8E;</span>
+<span class="hljs-keyword">let</span> sum = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">num1, num2</span>) </span>{
+    <span class="hljs-keyword">return</span> num1 + num2;
+}
+
+<span class="hljs-keyword">let</span>  getTempItem = id =&gt; ({id: id, name: <span class="hljs-string">&apos;Temp&apos;</span>})
+<span class="hljs-comment">// &#x7B49;&#x4E8E;</span>
+<span class="hljs-keyword">let</span> getTempItem = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id</span>) </span>{
+    <span class="hljs-keyword">return</span> {
+        id: id,
+        name: <span class="hljs-string">&apos;Temp&apos;</span>
+    };
+};
+
+<span class="hljs-comment">// &#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;</span>
+<span class="hljs-keyword">let</span> person = ((name) =&gt; {
+    <span class="hljs-keyword">return</span> {
+        getName: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> name;
+        }
+    }
+})(<span class="hljs-string">&apos;Nicholas&apos;</span>);
+
+<span class="hljs-built_in">console</span>.log(person.getName()); <span class="hljs-comment">// Nicholas</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第三章 函数","level":"1.4","depth":1,"previous":{"title":"第二章 字符串和正则表达式","level":"1.3","depth":1,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"深入理解ES6阅读笔记","language":"zh-hans","gitbook":"*","description":"深入理解ES6阅读笔记"},"file":{"path":"three/index.md","mtime":"2018-05-23T15:43:41.834Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-23T15:39:38.178Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
