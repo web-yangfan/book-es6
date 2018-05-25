@@ -1,0 +1,475 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>第四章 解构功能 · 深入理解ES6阅读笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../four/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    阅读深入理解ES6笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../one/">
+            
+                <a href="../one/">
+            
+                    
+                    第一章 块级作用域
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    第二章 字符串和正则表达式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../three/">
+            
+                <a href="../three/">
+            
+                    
+                    第三章 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../four/">
+            
+                <a href="../four/">
+            
+                    
+                    第四章 扩展对象的功能性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第四章 解构功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >第四章 解构功能</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <ul>
+<li>&#x57FA;&#x672C;&#x7528;&#x6CD5;</li>
+<li>&#x89E3;&#x6784;&#x8D4B;&#x503C;</li>
+<li>&#x9ED8;&#x8BA4;&#x503C;</li>
+<li>&#x8D4B;&#x503C;&#x53D8;&#x91CF;&#x8D77;&#x522B;&#x540D;</li>
+<li>&#x5D4C;&#x5957;&#x89E3;&#x6784;</li>
+<li>&#x4E0D;&#x5B9A;&#x6570;&#x7EC4;&#x5143;&#x7D20;</li>
+<li>&#x6570;&#x7EC4;&#x6DF7;&#x5408;&#x89E3;&#x6784;</li>
+<li>&#x89E3;&#x6784;&#x53C2;&#x6570;</li>
+</ul>
+<h5 id="1-&#x57FA;&#x672C;&#x7528;&#x6CD5;">1. &#x57FA;&#x672C;&#x7528;&#x6CD5;</h5>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x5BF9;&#x8C61;&#x89E3;&#x6784;</span>
+<span class="hljs-keyword">let</span> node = {
+    type: <span class="hljs-string">&apos;Identifier&apos;</span>,
+    name: <span class="hljs-string">&apos;foo&apos;</span>
+};
+<span class="hljs-keyword">let</span> { type, name } = node;
+<span class="hljs-built_in">console</span>.log(type); <span class="hljs-comment">// &apos;Identifier&apos;</span>
+<span class="hljs-built_in">console</span>.log(name); <span class="hljs-comment">// foo</span>
+
+
+<span class="hljs-keyword">let</span> colors = [ <span class="hljs-string">&apos;red&apos;</span>, <span class="hljs-string">&apos;green&apos;</span>, <span class="hljs-string">&apos;grey&apos;</span>];
+<span class="hljs-keyword">let</span> [ firstColor, secondColor] = colors;
+<span class="hljs-built_in">console</span>.log(firstColor); <span class="hljs-comment">// red</span>
+<span class="hljs-built_in">console</span>.log(secondColor); <span class="hljs-comment">// green</span>
+
+<span class="hljs-comment">// &#x6570;&#x7EC4;&#x89E3;&#x6784;&#x662F;&#x6839;&#x636E;&#x987A;&#x5E8F;&#x8D4B;&#x503C;&#x7684;</span>
+<span class="hljs-keyword">let</span> colors = [ <span class="hljs-string">&apos;red&apos;</span>, <span class="hljs-string">&apos;green&apos;</span>, <span class="hljs-string">&apos;grey&apos;</span>];
+<span class="hljs-keyword">let</span> [ , , third] = colors;
+<span class="hljs-built_in">console</span>.log(third); <span class="hljs-comment">// green</span>
+</code></pre>
+<h5 id="2-&#x89E3;&#x6784;&#x8D4B;&#x503C;">2. &#x89E3;&#x6784;&#x8D4B;&#x503C;</h5>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x89E3;&#x6784;&#x8D4B;&#x503C;</span>
+<span class="hljs-keyword">let</span> node = {
+    type: <span class="hljs-string">&apos;Identifier&apos;</span>,
+    name: <span class="hljs-string">&apos;foo&apos;</span>
+},
+type = <span class="hljs-string">&apos;Literal&apos;</span>,
+name = <span class="hljs-string">&apos;peter&apos;</span>;
+
+<span class="hljs-comment">// &#x4F7F;&#x7528;&#x89E3;&#x6784;&#x8BED;&#x6CD5;&#x4E3A;&#x591A;&#x4E2A;&#x53D8;&#x91CF;&#x8D4B;&#x503C;</span>
+<span class="hljs-comment">// &#x4EE3;&#x7801;&#x5757;&#x8BED;&#x53E5;&#x4E0D;&#x5141;&#x8BB8;&#x51FA;&#x73B0;&#x5728;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#x7684;&#x5DE6;&#x4FA7;</span>
+<span class="hljs-comment">// &#x52A0;&#x4E0A;&#x5C0F;&#x62EC;&#x53F7;&#x5C06;&#x4EE3;&#x7801;&#x5757;&#x8BED;&#x53E5;&#x8F6C;&#x6362;&#x6210;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;</span>
+({ type, name } = node);
+
+<span class="hljs-built_in">console</span>.log(type); <span class="hljs-comment">// &apos;Identifier&apos;</span>
+<span class="hljs-built_in">console</span>.log(name); <span class="hljs-comment">// foo</span>
+
+
+<span class="hljs-keyword">let</span> colors = [ <span class="hljs-string">&apos;red&apos;</span>, <span class="hljs-string">&apos;green&apos;</span>, <span class="hljs-string">&apos;grey&apos;</span>],
+    firstColor = <span class="hljs-string">&apos;blue&apos;</span>,
+    secondColor = <span class="hljs-string">&apos;yellow&apos;</span>;
+
+    [ firstColor, secondColor] = colors;
+    <span class="hljs-built_in">console</span>.log(firstColor); <span class="hljs-comment">// red</span>
+    <span class="hljs-built_in">console</span>.log(secondColor); <span class="hljs-comment">// green</span>
+
+<span class="hljs-comment">// &#x4EA4;&#x6362;&#x53D8;&#x91CF;</span>
+<span class="hljs-keyword">let</span> a = <span class="hljs-number">1</span>, b = <span class="hljs-number">2</span>;
+[a, b] = [b, a];
+<span class="hljs-built_in">console</span>.log(a); <span class="hljs-comment">// 2</span>
+<span class="hljs-built_in">console</span>.log(b); <span class="hljs-comment">// 1</span>
+</code></pre>
+<h5 id="3-&#x9ED8;&#x8BA4;&#x503C;">3. &#x9ED8;&#x8BA4;&#x503C;</h5>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> node = {
+    type: <span class="hljs-string">&apos;Identifier&apos;</span>,
+    name: <span class="hljs-string">&apos;foo&apos;</span>
+};
+
+<span class="hljs-keyword">let</span> { type, name, value = <span class="hljs-literal">true</span>, age} = node;
+
+<span class="hljs-built_in">console</span>.log(type);    <span class="hljs-comment">// Identifier</span>
+<span class="hljs-built_in">console</span>.log(name);    <span class="hljs-comment">// foo</span>
+<span class="hljs-built_in">console</span>.log(value);    <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(age); <span class="hljs-comment">// undefined</span>
+
+
+<span class="hljs-keyword">let</span> colors = [ <span class="hljs-string">&apos;red&apos;</span>,];
+<span class="hljs-keyword">let</span> [ firstColor, second = <span class="hljs-string">&quot;green&quot;</span>] = colors;
+<span class="hljs-built_in">console</span>.log(firstColor); <span class="hljs-comment">// red</span>
+<span class="hljs-built_in">console</span>.log(second); <span class="hljs-comment">// green</span>
+</code></pre>
+<h5 id="4-&#x8D4B;&#x503C;&#x53D8;&#x91CF;&#x8D77;&#x522B;&#x540D;">4. &#x8D4B;&#x503C;&#x53D8;&#x91CF;&#x8D77;&#x522B;&#x540D;</h5>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> node = {
+    type: <span class="hljs-string">&apos;Identifier&apos;</span>,
+    name: <span class="hljs-string">&apos;foo&apos;</span>
+};
+
+<span class="hljs-keyword">let</span> { type: localType, name: localName, age: localAge = <span class="hljs-string">&apos;24&apos;</span>} = node;
+
+<span class="hljs-built_in">console</span>.log(localType);    <span class="hljs-comment">// Identifier</span>
+<span class="hljs-built_in">console</span>.log(localName);    <span class="hljs-comment">// foo</span>
+<span class="hljs-built_in">console</span>.log(localAge);    <span class="hljs-comment">// 24</span>
+</code></pre>
+<h5 id="5-&#x5D4C;&#x5957;&#x89E3;&#x6784;">5. &#x5D4C;&#x5957;&#x89E3;&#x6784;</h5>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> node = {
+    type: <span class="hljs-string">&apos;Identifier&apos;</span>,
+    name: <span class="hljs-string">&apos;foo&apos;</span>,
+    loc: {
+        start: {
+            line: <span class="hljs-number">1</span>,
+            colunm: <span class="hljs-number">2</span>
+        },
+        end: {
+            line: <span class="hljs-number">1</span>,
+            colunm: <span class="hljs-number">2</span>
+        }
+    }
+}
+
+<span class="hljs-keyword">let</span> {loc: { start }} = node;
+<span class="hljs-keyword">let</span> {loc: { end:localEnd }} = node;
+
+<span class="hljs-built_in">console</span>.log(start.line);    <span class="hljs-comment">// 1</span>
+<span class="hljs-built_in">console</span>.log(start.colunm);    <span class="hljs-comment">// 2</span>
+
+<span class="hljs-built_in">console</span>.log(localEnd.line);    <span class="hljs-comment">// 1</span>
+<span class="hljs-built_in">console</span>.log(localEnd.colunm); <span class="hljs-comment">// 2</span>
+
+
+
+<span class="hljs-keyword">let</span> colors = [ <span class="hljs-string">&apos;red&apos;</span>, [<span class="hljs-string">&apos;green&apos;</span>, <span class="hljs-string">&apos;lightgreen&apos;</span>], <span class="hljs-string">&apos;blue&apos;</span> ];
+
+<span class="hljs-keyword">let</span> [ firstColor, [ secondColor] ] = colors;
+
+<span class="hljs-built_in">console</span>.log(firstColor);   <span class="hljs-comment">// red</span>
+<span class="hljs-built_in">console</span>.log(secondColor);  <span class="hljs-comment">// green</span>
+</code></pre>
+<h4 id="6-&#x4E0D;&#x5B9A;&#x6570;&#x7EC4;&#x5143;&#x7D20;">6. &#x4E0D;&#x5B9A;&#x6570;&#x7EC4;&#x5143;&#x7D20;</h4>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> colors = [<span class="hljs-string">&apos;red&apos;</span>, <span class="hljs-string">&apos;green&apos;</span>, <span class="hljs-string">&apos;grey&apos;</span>, <span class="hljs-string">&apos;blue&apos;</span>];
+
+<span class="hljs-keyword">let</span> [ firstColor, ...secondColor] = colors;
+<span class="hljs-built_in">console</span>.log(firstColor); <span class="hljs-comment">// red</span>
+<span class="hljs-built_in">console</span>.log(secondColor[<span class="hljs-number">0</span>]); <span class="hljs-comment">// green</span>
+<span class="hljs-built_in">console</span>.log(secondColor[<span class="hljs-number">1</span>]); <span class="hljs-comment">// grey</span>
+<span class="hljs-built_in">console</span>.log(secondColor[<span class="hljs-number">2</span>]); <span class="hljs-comment">// blue </span>
+
+
+<span class="hljs-comment">// &#x590D;&#x5236;&#x6570;&#x7EC4;</span>
+<span class="hljs-keyword">let</span> colors = [<span class="hljs-string">&apos;red&apos;</span>, <span class="hljs-string">&apos;green&apos;</span>, <span class="hljs-string">&apos;grey&apos;</span>, <span class="hljs-string">&apos;blue&apos;</span>];
+<span class="hljs-keyword">let</span> [ ...secondColor] = colors;
+
+<span class="hljs-built_in">console</span>.log(secondColor); <span class="hljs-comment">// [&quot;red&quot;, &quot;green&quot;, &quot;grey&quot;, &quot;blue&quot;]</span>
+</code></pre>
+<h5 id="7-&#x6570;&#x7EC4;&#x6DF7;&#x5408;&#x89E3;&#x6784;">7. &#x6570;&#x7EC4;&#x6DF7;&#x5408;&#x89E3;&#x6784;</h5>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> node = {
+    type: <span class="hljs-string">&apos;Identifier&apos;</span>,
+    name: <span class="hljs-string">&apos;foo&apos;</span>,
+    loc: {
+        start: {
+            line: <span class="hljs-number">1</span>,
+            column: <span class="hljs-number">1</span>
+        },
+        end: {
+            line: <span class="hljs-number">1</span>,
+            column: <span class="hljs-number">4</span>
+        }
+    },
+    range: [<span class="hljs-number">0</span>, <span class="hljs-number">3</span>]
+};
+
+<span class="hljs-keyword">let</span> { loc: {start},
+    range: [ startIndex ]
+} = node;
+<span class="hljs-built_in">console</span>.log(start.line);   <span class="hljs-comment">// 1</span>
+<span class="hljs-built_in">console</span>.log(start.column); <span class="hljs-comment">// 1</span>
+<span class="hljs-built_in">console</span>.log(startIndex);   <span class="hljs-comment">// 0</span>
+</code></pre>
+<h4 id="8-&#x89E3;&#x6784;&#x53C2;&#x6570;">8. &#x89E3;&#x6784;&#x53C2;&#x6570;</h4>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setCookie</span>(<span class="hljs-params">name, vlaue, { secure, path, domain, expires}</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(name);   <span class="hljs-comment">// type</span>
+    <span class="hljs-built_in">console</span>.log(vlaue);  <span class="hljs-comment">// js</span>
+    <span class="hljs-built_in">console</span>.log(secure); <span class="hljs-comment">//  true</span>
+    <span class="hljs-built_in">console</span>.log(path);   <span class="hljs-comment">//  undefined</span>
+    <span class="hljs-built_in">console</span>.log(domain); <span class="hljs-comment">//  undefined</span>
+    <span class="hljs-built_in">console</span>.log(expires); <span class="hljs-comment">// 60000</span>
+}
+
+setCookie(<span class="hljs-string">&apos;type&apos;</span>, <span class="hljs-string">&apos;js&apos;</span>, {
+    secure: <span class="hljs-literal">true</span>,
+    expires: <span class="hljs-number">60000</span>
+});
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../four/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 第四章 扩展对象的功能性">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第四章 解构功能","level":"1.6","depth":1,"previous":{"title":"第四章 扩展对象的功能性","level":"1.5","depth":1,"path":"four/index.md","ref":"four/index.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"深入理解ES6阅读笔记","language":"zh-hans","gitbook":"*","description":"深入理解ES6阅读笔记"},"file":{"path":"five/index.md","mtime":"2018-05-25T16:01:00.960Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-25T16:00:05.536Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

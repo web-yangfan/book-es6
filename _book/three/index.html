@@ -57,6 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="../four/" />
+    
     
 
     </head>
@@ -137,6 +139,32 @@
             
         </li>
     
+        <li class="chapter " data-level="1.5" data-path="../four/">
+            
+                <a href="../four/">
+            
+                    
+                    第四章 扩展对象的功能性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../five/">
+            
+                <a href="../five/">
+            
+                    
+                    第四章 解构功能
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -188,6 +216,7 @@
 <li>&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;</li>
 <li>&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x8868;&#x8FBE;&#x5F0F;</li>
 <li>&#x4E0D;&#x5B9A;&#x53C2;&#x6570;</li>
+<li>&#x89E3;&#x6784;&#x53C2;&#x6570;</li>
 <li>&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x503C;&#x5BF9;arguments&#x7684;&#x5F71;&#x54CD;</li>
 </ul>
 </li>
@@ -270,7 +299,23 @@ pick(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <sp
 pick.getValue(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>);
 </code></pre>
 <p><br></p>
-<h4 id="4-&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x503C;&#x5BF9;arguments&#x7684;&#x5F71;&#x54CD;">4. &#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x503C;&#x5BF9;arguments&#x7684;&#x5F71;&#x54CD;</h4>
+<h4 id="4-&#x89E3;&#x6784;&#x53C2;&#x6570;">4. &#x89E3;&#x6784;&#x53C2;&#x6570;</h4>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setCookie</span>(<span class="hljs-params">name, vlaue, { secure, path, domain, expires}</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(name);   <span class="hljs-comment">// type</span>
+    <span class="hljs-built_in">console</span>.log(vlaue);  <span class="hljs-comment">// js</span>
+    <span class="hljs-built_in">console</span>.log(secure); <span class="hljs-comment">//  true</span>
+    <span class="hljs-built_in">console</span>.log(path);   <span class="hljs-comment">//  undefined</span>
+    <span class="hljs-built_in">console</span>.log(domain); <span class="hljs-comment">//  undefined</span>
+    <span class="hljs-built_in">console</span>.log(expires); <span class="hljs-comment">// 60000</span>
+}
+
+setCookie(<span class="hljs-string">&apos;type&apos;</span>, <span class="hljs-string">&apos;js&apos;</span>, {
+    secure: <span class="hljs-literal">true</span>,
+    expires: <span class="hljs-number">60000</span>
+});
+</code></pre>
+<p><br></p>
+<h4 id="5-&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x503C;&#x5BF9;arguments&#x7684;&#x5F71;&#x54CD;">5. &#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x503C;&#x5BF9;arguments&#x7684;&#x5F71;&#x54CD;</h4>
 <pre><code class="lang-js"><span class="hljs-comment">// first&#x548C;second&#x88AB;&#x8D4B;&#x4E88;&#x65B0;&#x503C;&#xFF0C;arguments[0]&#x548C; arguments[1]&#x76F8;&#x5E94;&#x5730;&#x4E5F;&#x66F4;&#x65B0;&#x4E86;</span>
 <span class="hljs-comment">// &#x5728;ECMAScript5&#x7684;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#xFF0C;argument&#x5BF9;&#x8C61;&#x4E0D;&#x4F1A;&#x968F;&#x4E4B;&#x6539;&#x53D8;</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mixArgs</span> (<span class="hljs-params">first, second</span>) </span>{
@@ -386,6 +431,10 @@ mixArgs(<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string
             
                 
                 
+                <a href="../four/" class="navigation navigation-next navigation-unique" aria-label="Next page: 第四章 扩展对象的功能性">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
             
         
     </div>
@@ -393,7 +442,7 @@ mixArgs(<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"第三章 函数","level":"1.4","depth":1,"previous":{"title":"第二章 字符串和正则表达式","level":"1.3","depth":1,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"深入理解ES6阅读笔记","language":"zh-hans","gitbook":"*","description":"深入理解ES6阅读笔记"},"file":{"path":"three/index.md","mtime":"2018-05-23T15:43:41.834Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-23T15:39:38.178Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"第三章 函数","level":"1.4","depth":1,"next":{"title":"第四章 扩展对象的功能性","level":"1.5","depth":1,"path":"four/index.md","ref":"four/index.md","articles":[]},"previous":{"title":"第二章 字符串和正则表达式","level":"1.3","depth":1,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"深入理解ES6阅读笔记","language":"zh-hans","gitbook":"*","description":"深入理解ES6阅读笔记"},"file":{"path":"three/index.md","mtime":"2018-05-25T16:04:57.427Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-25T16:00:05.536Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,6 +4,7 @@
 	* 使用默认参数
 	* 默认参数表达式
 	* 不定参数
+	* 解构参数
 	* 默认参数值对arguments的影响
 2. 箭头函数
 <br >
@@ -90,7 +91,29 @@ pick.getValue(1, 2, 3, 4, 5);
 ```
 
 <br >
-#### 4. 默认参数值对arguments的影响
+
+#### 4. 解构参数
+``` js
+function setCookie(name, vlaue, { secure, path, domain, expires}) {
+	console.log(name);   // type
+	console.log(vlaue);  // js
+	console.log(secure); //  true
+	console.log(path);   //  undefined
+	console.log(domain); //  undefined
+	console.log(expires); // 60000
+}
+
+setCookie('type', 'js', {
+	secure: true,
+	expires: 60000
+});
+
+```
+
+
+<br >
+
+#### 5. 默认参数值对arguments的影响
 
 ``` js
 // first和second被赋予新值，arguments[0]和 arguments[1]相应地也更新了
