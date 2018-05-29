@@ -1,0 +1,686 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>第六章 改进数组的功能 · 深入理解ES6阅读笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../5/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    阅读深入理解ES6笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../1/">
+            
+                <a href="../1/">
+            
+                    
+                    第一章 块级作用域
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../2/">
+            
+                <a href="../2/">
+            
+                    
+                    第二章 字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../3/">
+            
+                <a href="../3/">
+            
+                    
+                    第三章 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../4/">
+            
+                <a href="../4/">
+            
+                    
+                    第四章 扩展对象的功能性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../5/">
+            
+                <a href="../5/">
+            
+                    
+                    第五章 解构：数据访问更便捷
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第六章 改进数组的功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >第六章 改进数组的功能</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x6539;&#x8FDB;&#x6570;&#x7EC4;&#x7684;&#x529F;&#x80FD;es6-&#x548C;-es5&#x7684;&#x6570;&#x7EC4;&#x65B9;&#x6CD5;">&#x6539;&#x8FDB;&#x6570;&#x7EC4;&#x7684;&#x529F;&#x80FD;(ES6 &#x548C; ES5&#x7684;&#x6570;&#x7EC4;&#x65B9;&#x6CD5;)</h2>
+<ul>
+<li>Array.of()</li>
+<li>Array.from()</li>
+<li>find() &#x548C; findIndex() &#x65B9;&#x6CD5;</li>
+<li>includes()</li>
+<li>forEach (js v1.6)</li>
+<li>map (js v1.6)</li>
+<li>filter (js v1.6)</li>
+<li>some (js v1.6)</li>
+<li>every (js v1.6)</li>
+<li>indexOf (js v1.6)</li>
+<li>lastIndexOf (js v1.6)</li>
+<li>reduce (js v1.8)</li>
+<li>reduceRight (js v1.8)</li>
+<li>&#x6570;&#x7EC4;&#x53BB;&#x91CD;</li>
+<li>&#x590D;&#x5236;&#x6570;&#x7EC4;</li>
+<li>&#x8FDE;&#x63A5;&#x6570;&#x7EC4;</li>
+</ul>
+<h4 id="arrayof&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5C06;&#x4E00;&#x7EC4;&#x503C;&#xFF0C;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x7EC4;">Array.of()&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5C06;&#x4E00;&#x7EC4;&#x503C;&#xFF0C;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x7EC4;</h4>
+<h6 id="&#x4EE5;&#x4E0B;&#x662F;array-&#x6784;&#x9020;&#x51FD;&#x6570;&#x521B;&#x5EFA;&#x6570;&#x7EC4;&#x65F6;&#x5019;&#x7684;&#x602A;&#x5F02;&#x884C;&#x4E3A;">&#x4EE5;&#x4E0B;&#x662F;Array &#x6784;&#x9020;&#x51FD;&#x6570;&#x521B;&#x5EFA;&#x6570;&#x7EC4;&#x65F6;&#x5019;&#x7684;&#x602A;&#x5F02;&#x884C;&#x4E3A;</h6>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> items = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">2</span>);
+<span class="hljs-built_in">console</span>.log(items.length); <span class="hljs-comment">// 2</span>
+<span class="hljs-built_in">console</span>.log(items[<span class="hljs-number">0</span>]);  <span class="hljs-comment">// undefined</span>
+<span class="hljs-built_in">console</span>.log(items[<span class="hljs-number">1</span>]);  <span class="hljs-comment">// undefined</span>
+
+<span class="hljs-keyword">let</span> items = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-string">&quot;2&quot;</span>);
+<span class="hljs-built_in">console</span>.log(items.length); <span class="hljs-comment">// 1</span>
+<span class="hljs-built_in">console</span>.log(items[<span class="hljs-number">0</span>]);  <span class="hljs-comment">// &quot;2&quot;</span>
+
+<span class="hljs-keyword">let</span> items = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
+<span class="hljs-built_in">console</span>.log(items.length); <span class="hljs-comment">// 2</span>
+<span class="hljs-built_in">console</span>.log(items[<span class="hljs-number">0</span>]);  <span class="hljs-comment">// 1</span>
+<span class="hljs-built_in">console</span>.log(items[<span class="hljs-number">1</span>]);  <span class="hljs-comment">// 2</span>
+
+
+<span class="hljs-keyword">let</span> items = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">3</span>, <span class="hljs-string">&quot;2&quot;</span>);
+<span class="hljs-built_in">console</span>.log(items.length);  <span class="hljs-comment">// 2</span>
+<span class="hljs-built_in">console</span>.log(items[<span class="hljs-number">0</span>]);        <span class="hljs-comment">// 3</span>
+<span class="hljs-built_in">console</span>.log(items[<span class="hljs-number">1</span>]);        <span class="hljs-comment">// &quot;2&quot;</span>
+</code></pre>
+<h6 id="ecmascript-6-arrayof-&#x89E3;&#x51B3;&#x4E0A;&#x9762;&#x7684;&#x602A;&#x5F02;&#x884C;&#x4E3A;">ECMAScript 6 Array.of() &#x89E3;&#x51B3;&#x4E0A;&#x9762;&#x7684;&#x602A;&#x5F02;&#x884C;&#x4E3A;</h6>
+<pre><code class="lang-js">
+<span class="hljs-keyword">let</span> items = <span class="hljs-built_in">Array</span>.of(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
+<span class="hljs-built_in">console</span>.log(items.length); <span class="hljs-comment">// 2</span>
+<span class="hljs-built_in">console</span>.log(items[<span class="hljs-number">0</span>]); <span class="hljs-comment">// 1</span>
+<span class="hljs-built_in">console</span>.log(items[<span class="hljs-number">1</span>]); <span class="hljs-comment">// 2</span>
+
+<span class="hljs-keyword">let</span> items = <span class="hljs-built_in">Array</span>.of(<span class="hljs-number">2</span>);
+<span class="hljs-built_in">console</span>.log(items.length); <span class="hljs-comment">// 1</span>
+<span class="hljs-built_in">console</span>.log(items[<span class="hljs-number">0</span>]); <span class="hljs-comment">// 2</span>
+
+<span class="hljs-keyword">let</span> items = <span class="hljs-built_in">Array</span>.of(<span class="hljs-string">&quot;2&quot;</span>);
+<span class="hljs-built_in">console</span>.log(items.length); <span class="hljs-comment">// 1</span>
+<span class="hljs-built_in">console</span>.log(items[<span class="hljs-number">0</span>]); <span class="hljs-comment">// &quot;2&quot;</span>
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="arrayfrom&#x6CD5;&#x7528;&#x4E8E;&#x5C06;&#x4E24;&#x7C7B;&#x5BF9;&#x8C61;&#x8F6C;&#x4E3A;&#x771F;&#x6B63;&#x7684;&#x6570;&#x7EC4;&#xFF1A;&#x7C7B;&#x6570;&#x7EC4;&#x7684;&#x5BF9;&#x8C61;&#xFF08;-array-like-object-&#xFF09;&#x548C;&#x53EF;&#x904D;&#x5386;&#xFF08;-iterable-&#xFF09;&#x7684;&#x5BF9;&#x8C61;&#xFF08;&#x5305;&#x62EC;-es6-&#x65B0;&#x589E;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;-set-&#x548C;map-&#xFF09;&#x3002;">Array.from()&#x6CD5;&#x7528;&#x4E8E;&#x5C06;&#x4E24;&#x7C7B;&#x5BF9;&#x8C61;&#x8F6C;&#x4E3A;&#x771F;&#x6B63;&#x7684;&#x6570;&#x7EC4;&#xFF1A;&#x7C7B;&#x6570;&#x7EC4;&#x7684;&#x5BF9;&#x8C61;&#xFF08; array-like object &#xFF09;&#x548C;&#x53EF;&#x904D;&#x5386;&#xFF08; Iterable &#xFF09;&#x7684;&#x5BF9;&#x8C61;&#xFF08;&#x5305;&#x62EC; ES6 &#x65B0;&#x589E;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784; Set &#x548C;Map &#xFF09;&#x3002;</h4>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> arrayLike = {  
+&#x3000;&#x3000;<span class="hljs-string">&apos;0&apos;</span>: <span class="hljs-string">&apos;a&apos;</span>,  
+&#x3000;&#x3000;<span class="hljs-string">&apos;1&apos;</span>: <span class="hljs-string">&apos;b&apos;</span>,  
+&#x3000;&#x3000;<span class="hljs-string">&apos;2&apos;</span>: <span class="hljs-string">&apos;c&apos;</span>,  
+&#x3000;&#x3000;length: <span class="hljs-number">3</span>  
+};  
+<span class="hljs-comment">// ES5 &#x7684;&#x5199;&#x6CD5;  </span>
+<span class="hljs-keyword">var</span> arr1 = [].slice.call(arrayLike); <span class="hljs-comment">// [&#x2018;a&#x2018;, &#x2018;b&#x2018;, &#x2018;c&#x2018;]  </span>
+<span class="hljs-comment">// ES6 &#x7684;&#x5199;&#x6CD5;  </span>
+<span class="hljs-keyword">let</span> arr2 = <span class="hljs-built_in">Array</span>.from(arrayLike); <span class="hljs-comment">// [&#x2018;a&#x2018;, &#x2018;b&#x2018;, &#x2018;c&#x2018;]  </span>
+
+<span class="hljs-built_in">console</span>.log(arr1);  <span class="hljs-comment">// [&#x2018;a&#x2018;, &#x2018;b&#x2018;, &#x2018;c&#x2018;]  </span>
+<span class="hljs-built_in">console</span>.log(arr2);  <span class="hljs-comment">// [&#x2018;a&#x2018;, &#x2018;b&#x2018;, &#x2018;c&#x2018;]  </span>
+
+
+<span class="hljs-comment">// NodeList &#x5BF9;&#x8C61;  </span>
+<span class="hljs-keyword">let</span> item = <span class="hljs-built_in">Array</span>.from(<span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">&apos;p&apos;</span>));  
+item.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">p</span>) </span>{  
+&#x3000;&#x3000;<span class="hljs-built_in">console</span>.log(p);  
+});  
+
+
+<span class="hljs-comment">// arguments &#x5BF9;&#x8C61;  </span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{  
+    <span class="hljs-keyword">var</span> args = <span class="hljs-built_in">Array</span>.from(<span class="hljs-built_in">arguments</span>);  
+    <span class="hljs-comment">// ...  </span>
+}  
+
+<span class="hljs-comment">//&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x6570;&#x7EC4;str.split(&apos;&apos;)  </span>
+<span class="hljs-built_in">Array</span>.from(<span class="hljs-string">&apos;hello&apos;</span>)  <span class="hljs-comment">// [&apos;h&apos;, &apos;e&apos;, &apos;l&apos;, &apos;l&apos;, &apos;o&apos;]  </span>
+<span class="hljs-keyword">let</span> namesSet = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span>])  
+<span class="hljs-built_in">Array</span>.from(namesSet) <span class="hljs-comment">// [&apos;a&apos;, &apos;b&apos;]  </span>
+
+<span class="hljs-built_in">Array</span>.from({ length: <span class="hljs-number">3</span> });  <span class="hljs-comment">// [ undefined, undefined, undefined ] </span>
+
+
+<span class="hljs-comment">// Array.from&#x8FD8;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4F5C;&#x7528;&#x7C7B;&#x4F3C;&#x4E8E;&#x6570;&#x7EC4;&#x7684;map&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x6765;&#x5BF9;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5C06;&#x5904;&#x7406;&#x540E;&#x7684;&#x503C;&#x653E;&#x5165;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x7EC4;&#x3002;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">translate</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Array</span>.from(<span class="hljs-built_in">arguments</span>, (value) =&gt; value + <span class="hljs-number">1</span>);
+}
+
+<span class="hljs-keyword">let</span> numbers = translate(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);  <span class="hljs-comment">// [2, 3, 4]</span>
+<span class="hljs-built_in">console</span>.log(numbers);
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="find-&#x548C;-findindex-&#x65B9;&#x6CD5;">find() &#x548C; findIndex() &#x65B9;&#x6CD5;</h4>
+<ul>
+<li>&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x56DE;&#x8C03;&#x53C2;&#x6570;</li>
+<li>&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x9009;&#x53C2;&#x6570; </li>
+<li>&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x7ACB;&#x5373;&#x505C;&#x6B62;&#xFF0C;find&#x8FD4;&#x56DE;&#x67E5;&#x5230;&#x7684;&#x503C;&#xFF0C;findIndex&#x8FD4;&#x56DE;&#x7D22;&#x5F15;</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">25</span>, <span class="hljs-number">30</span>, <span class="hljs-number">35</span>, <span class="hljs-number">40</span>, <span class="hljs-number">45</span>];
+<span class="hljs-built_in">console</span>.log(numbers.find( n =&gt; n &gt; <span class="hljs-number">33</span>)); <span class="hljs-comment">// 35</span>
+<span class="hljs-built_in">console</span>.log(numbers.findIndex( n =&gt; n &gt; <span class="hljs-number">33</span>)); <span class="hljs-comment">// 2</span>
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="includes-&#x68C0;&#x67E5;&#x6570;&#x7EC4;&#x5305;&#x542B;&#x67D0;&#x4E2A;&#x503C;-&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;">includes() &#x68C0;&#x67E5;&#x6570;&#x7EC4;&#x5305;&#x542B;&#x67D0;&#x4E2A;&#x503C; &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;</h4>
+<pre><code class="lang-js"> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>].includes(<span class="hljs-number">2</span>);     <span class="hljs-comment">// true</span>
+ [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>].includes(<span class="hljs-number">4</span>);     <span class="hljs-comment">// false</span>
+ [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>].includes(<span class="hljs-literal">NaN</span>); <span class="hljs-comment">// true</span>
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="foreach-js-v16">forEach (js v1.6)</h4>
+<pre><code class="lang-js"><span class="hljs-comment">/*
+ * &#x904D;&#x5386;&#xFF0C;&#x5FAA;&#x73AF;
+ * array.forEach(callback,[ thisObject])
+ * */</span>
+<span class="hljs-keyword">var</span> arr = [<span class="hljs-string">&apos;&#x827E;&#x65AF;&apos;</span>,<span class="hljs-string">&apos;&#x8DEF;&#x98DE;&apos;</span>,<span class="hljs-string">&apos;&#x5A1C;&#x7F8E;&apos;</span>,<span class="hljs-string">&apos;&#x5C71;&#x6CBB;&apos;</span>,<span class="hljs-string">&apos;&#x5F17;&#x5170;&#x5947;&apos;</span>,<span class="hljs-string">&apos;&#x9999;&#x514B;&#x65AF;&apos;</span>];
+arr.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item,index</span>)</span>{
+  <span class="hljs-built_in">console</span>.log(index+<span class="hljs-string">&apos;---&apos;</span>+item)
+})
+
+
+<span class="hljs-keyword">var</span> database = {
+  arr : [<span class="hljs-string">&apos;&#x827E;&#x65AF;&apos;</span>,<span class="hljs-string">&apos;&#x8DEF;&#x98DE;&apos;</span>,<span class="hljs-string">&apos;&#x5A1C;&#x7F8E;&apos;</span>,<span class="hljs-string">&apos;&#x5C71;&#x6CBB;&apos;</span>,<span class="hljs-string">&apos;&#x5F17;&#x5170;&#x5947;&apos;</span>,<span class="hljs-string">&apos;&#x9999;&#x514B;&#x65AF;&apos;</span>],
+  <span class="hljs-built_in">console</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.addStr(name))
+  },
+  addStr:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name</span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&#x59D3;&#x540D;&#xFF1A;&apos;</span>+ name;
+  }
+};
+
+database.arr.forEach(database.console,database)
+
+<span class="hljs-comment">/* &#x8F93;&#x51FA;:
+  &#x59D3;&#x540D;&#xFF1A;&#x827E;&#x65AF;
+  &#x59D3;&#x540D;&#xFF1A;&#x8DEF;&#x98DE;
+  &#x59D3;&#x540D;&#xFF1A;&#x5A1C;&#x7F8E;
+  &#x59D3;&#x540D;&#xFF1A;&#x5C71;&#x6CBB;
+  &#x59D3;&#x540D;&#xFF1A;&#x5F17;&#x5170;&#x5947;
+  &#x59D3;&#x540D;&#xFF1A;&#x9999;&#x514B;&#x65AF;
+  */</span>
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="map-js-v16">map (js v1.6)</h4>
+<pre><code class="lang-js"><span class="hljs-comment">/*
+ * map &#x539F;&#x6570;&#x7EC4;&#x88AB;&#x201C;&#x6620;&#x5C04;&#x201D;&#x6210;&#x5BF9;&#x5E94;&#x65B0;&#x6570;&#x7EC4;
+ * array.map(callback,[ thisObject]);
+ * */</span>
+<span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];
+<span class="hljs-keyword">var</span> newArr = arr.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>)</span>{
+  <span class="hljs-keyword">return</span> item * item
+})
+<span class="hljs-built_in">console</span>.log(newArr)  <span class="hljs-comment">//[1,4,9,16,25]</span>
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="filter-js-v16">filter (js v1.6)</h4>
+<pre><code class="lang-js"><span class="hljs-comment">/*
+* filter &#x7B5B;&#x9009;&#x3001;&#x8FC7;&#x6EE4;
+* array.filter(callback,[ thisObject]);
+* */</span>
+<span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">1</span>];
+<span class="hljs-keyword">var</span> newArr = arr.filter(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>)</span>{
+  <span class="hljs-keyword">return</span> item !=<span class="hljs-number">1</span>;
+})
+<span class="hljs-built_in">console</span>.log(newArr)  <span class="hljs-comment">//[2,3,4,5]</span>
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="some-js-v16">some (js v1.6)</h4>
+<pre><code class="lang-js"><span class="hljs-comment">/*
+* some &#x6307;&#x662F;&#x5426;&#x201C;&#x67D0;&#x4E9B;&#x9879;&#x201D;&#x5408;&#x4E4E;&#x6761;&#x4EF6;,some&#x53EA;&#x6709;&#x6709;true&#x5373;&#x8FD4;&#x56DE;&#x4E0D;&#x518D;&#x6267;&#x884C;&#x4E86;&#x3002;
+* array.some(callback,[ thisObject]);
+* */</span>
+<span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>];
+<span class="hljs-keyword">var</span> current = <span class="hljs-number">1</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">higherThanCurrent</span>(<span class="hljs-params">score</span>) </span>{
+  <span class="hljs-keyword">return</span> score &gt; current;
+}
+
+<span class="hljs-keyword">if</span> (arr.some(higherThanCurrent)) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;&#x6715;&#x51C6;&#x4E86;&#xFF01;&quot;</span>);  <span class="hljs-comment">//&#x5C31;&#x8F93;&#x51FA;&#x4E00;&#x6B21;</span>
+}
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="every-js-v16">every (js v1.6)</h4>
+<pre><code class="lang-js">
+<span class="hljs-comment">/*
+* every &#x6307;&#x662F;&#x5426;&#x201C;&#x67D0;&#x4E9B;&#x9879;&#x201D;&#x5408;&#x4E4E;&#x6761;&#x4EF6;,every&#x53EA;&#x6709;&#x90FD;&#x4E3A;true&#x624D;&#x4F1A;&#x8FD4;&#x56DE;true
+* array.every(callback,[ thisObject]);
+* */</span>
+<span class="hljs-keyword">var</span> arr = [<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>];
+<span class="hljs-keyword">var</span> current = <span class="hljs-number">1</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">higherThanCurrent</span>(<span class="hljs-params">score</span>) </span>{
+  <span class="hljs-keyword">return</span> score &gt; current;
+}
+
+<span class="hljs-keyword">if</span> (arr.every(higherThanCurrent)) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;&#x6715;&#x51C6;&#x4E86;&#xFF01;&quot;</span>);  <span class="hljs-comment">//&#x5C31;&#x8F93;&#x51FA;&#x4E00;&#x6B21;</span>
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;&#x6765;&#x4EBA;&#xFF0C;&#x62D6;&#x51FA;&#x53BB;&#x65A9;&#x4E86;&#xFF01;&quot;</span>);
+}
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="indexof-js-v16">indexOf (js v1.6)</h4>
+<pre><code class="lang-js">
+<span class="hljs-comment">/*
+* indexOf &#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x5B58;&#x5728;&#x8FD4;&#x56DE;&#x7D22;&#x5F15;&#x503C;,&#x4E0D;&#x5B58;&#x5728;&#x8FD4;&#x56DE; -1
+* array.indexOf(searchElement[, fromIndex])
+ * */</span>
+<span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];
+<span class="hljs-keyword">var</span> index = arr.indexOf(<span class="hljs-number">10</span>)
+<span class="hljs-built_in">console</span>.log(index)
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="lastindexof-js-v16">lastIndexOf (js v1.6)</h4>
+<pre><code class="lang-js"><span class="hljs-comment">/*
+* lastIndexOf
+* lastIndexOf&#x65B9;&#x6CD5;&#x4E0E;indexOf&#x65B9;&#x6CD5;&#x7C7B;&#x4F3C;&#x53EA;&#x662F;lastIndexOf&#x662F;&#x4ECE;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x672B;&#x5C3E;&#x5F00;&#x59CB;&#x67E5;&#x627E;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4ECE;&#x5F00;&#x5934;&#x3002;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x5C31;&#x662F;fromIndex&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x662F;array.length - 1&#x800C;&#x4E0D;&#x662F;0.
+* array.lastIndexOf(searchElement[, fromIndex])
+* */</span>
+<span class="hljs-keyword">var</span> data = [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>];
+
+<span class="hljs-built_in">console</span>.log(data.lastIndexOf(<span class="hljs-number">5</span>)); <span class="hljs-comment">// 4</span>
+<span class="hljs-built_in">console</span>.log(data.lastIndexOf(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>)); <span class="hljs-comment">// 1 (&#x4ECE;&#x540E;&#x5F80;&#x524D;&#xFF0C;&#x7D22;&#x5F15;&#x503C;&#x5C0F;&#x4E8E;3&#x7684;&#x5F00;&#x59CB;&#x641C;&#x7D22;)</span>
+
+<span class="hljs-built_in">console</span>.log(data.lastIndexOf(<span class="hljs-number">4</span>)); <span class="hljs-comment">// -1 (&#x672A;&#x627E;&#x5230;)</span>
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="reduce-js-v18">reduce (js v1.8)</h4>
+<pre><code class="lang-js"> <span class="hljs-comment">/*
+ * reduce
+ *callback&#x51FD;&#x6570;&#x63A5;&#x53D7;4&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x4E4B;&#x524D;&#x503C;&#x3001;&#x5F53;&#x524D;&#x503C;&#x3001;&#x7D22;&#x5F15;&#x503C;&#x4EE5;&#x53CA;&#x6570;&#x7EC4;&#x672C;&#x8EAB;&#x3002;initialValue&#x53C2;&#x6570;&#x53EF;&#x9009;&#xFF0C;&#x8868;&#x793A;&#x521D;&#x59CB;&#x503C;&#x3002;&#x82E5;&#x6307;&#x5B9A;&#xFF0C;&#x5219;&#x5F53;&#x4F5C;&#x6700;&#x521D;&#x4F7F;&#x7528;&#x7684;previous&#x503C;&#xFF1B;&#x5982;&#x679C;&#x7F3A;&#x7701;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x6570;&#x7EC4;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4F5C;&#x4E3A;previous&#x521D;&#x59CB;&#x503C;&#xFF0C;&#x540C;&#x65F6;current&#x5F80;&#x540E;&#x6392;&#x4E00;&#x4F4D;&#xFF0C;&#x76F8;&#x6BD4;&#x6709;initialValue&#x503C;&#x5C11;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x3002;
+ * array.reduce(callback[, initialValue])
+ * */</span>
+
+ <span class="hljs-keyword">var</span> sum = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>].reduce(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">previous, current, index, array</span>) </span>{
+   <span class="hljs-keyword">return</span> previous + current;
+ });
+
+ <span class="hljs-built_in">console</span>.log(sum); <span class="hljs-comment">// 10</span>
+<span class="hljs-comment">/* &#x8BF4;&#x660E;&#xFF1A;
+
+ 1&#x3001;&#x56E0;&#x4E3A;initialValue&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x56E0;&#x6B64;&#x4E00;&#x5F00;&#x59CB;&#x7684;previous&#x503C;&#x7B49;&#x4E8E;&#x6570;&#x7EC4;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x3002;
+ 2&#x3001;&#x4ECE;&#x800C;current&#x503C;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x662F;2.
+ 3&#x3001;&#x6700;&#x540E;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x7D22;&#x5F15;&#x503C;index&#x4EE5;&#x53CA;&#x6570;&#x7EC4;&#x672C;&#x8EAB;array.
+
+ &#x4EE5;&#x4E0B;&#x4E3A;&#x5FAA;&#x73AF;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#xFF1A;
+ // &#x521D;&#x59CB;&#x8BBE;&#x7F6E;
+ previous = initialValue = 1, current = 2
+
+ // &#x7B2C;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;
+ previous = (1 + 2) =  3, current = 3
+
+ // &#x7B2C;&#x4E8C;&#x6B21;&#x8FED;&#x4EE3;
+ previous = (3 + 3) =  6, current = 4
+
+ // &#x7B2C;&#x4E09;&#x6B21;&#x8FED;&#x4EE3;
+ previous = (6 + 4) =  10, current = undefined (&#x9000;&#x51FA;)
+ */</span>
+
+<span class="hljs-comment">// &#x6709;&#x4E86;reduce&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x5B9E;&#x73B0;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x7684;&#x6241;&#x5E73;&#x5316;&#xFF1A;</span>
+
+
+
+ <span class="hljs-keyword">var</span> matrix = [
+   [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>],
+   [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>],
+   [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>]
+ ];
+
+ <span class="hljs-comment">// &#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x6241;&#x5E73;&#x5316;</span>
+ <span class="hljs-keyword">var</span> flatten = matrix.reduce(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">previous, current</span>) </span>{
+   <span class="hljs-keyword">return</span> previous.concat(current);
+ });
+
+ <span class="hljs-built_in">console</span>.log(flatten); <span class="hljs-comment">// [1, 2, 3, 4, 5, 6]</span>
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="reduceright-js-v18">reduceRight (js v1.8)</h4>
+<pre><code class="lang-js"> <span class="hljs-comment">/*
+ * reduceRight
+ * educeRight&#x8DDF;reduce&#x76F8;&#x6BD4;&#xFF0C;&#x7528;&#x6CD5;&#x7C7B;&#x4F3C;,&#x5B9E;&#x73B0;&#x4E0A;&#x5DEE;&#x5F02;&#x5728;&#x4E8E;reduceRight&#x662F;&#x4ECE;&#x6570;&#x7EC4;&#x7684;&#x672B;&#x5C3E;&#x5F00;&#x59CB;&#x5B9E;&#x73B0;
+ * array.reduceRight(callback[, initialValue])
+ * */</span>
+
+ <span class="hljs-keyword">var</span> data = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+ <span class="hljs-keyword">var</span> specialDiff = data.reduceRight(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">previous, current, index</span>) </span>{
+   <span class="hljs-keyword">if</span> (index == <span class="hljs-number">0</span>) {
+     <span class="hljs-keyword">return</span> previous + current;
+   }
+   <span class="hljs-keyword">return</span> previous - current;
+ });
+
+ <span class="hljs-built_in">console</span>.log(specialDiff); <span class="hljs-comment">// 0</span>
+<span class="hljs-comment">/* &#x7ED3;&#x679C;0&#x662F;&#x5982;&#x4F55;&#x5F97;&#x5230;&#x7684;&#x5462;&#xFF1F;
+ &#x6211;&#x4EEC;&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x67E5;&#x770B;&#x5FAA;&#x73AF;&#x6267;&#x884C;&#xFF1A;
+
+ // &#x521D;&#x59CB;&#x8BBE;&#x7F6E;
+ index = 3, previous = initialValue = 4, current = 3
+
+ // &#x7B2C;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;
+ index = 2, previous = (4- 3) = 1, current = 2
+
+ // &#x7B2C;&#x4E8C;&#x6B21;&#x8FED;&#x4EE3;
+ index = 1, previous = (1 - 2) = -1, current = 1
+
+ // &#x7B2C;&#x4E09;&#x6B21;&#x8FED;&#x4EE3;
+ index = 0, previous = (-1 + 1) = 0, current = undefined (&#x9000;&#x51FA;)
+ */</span>
+
+<span class="hljs-comment">// &#x6709;&#x4E86;reduce&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x5B9E;&#x73B0;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x7684;&#x6241;&#x5E73;&#x5316;&#xFF1A;</span>
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="&#x6570;&#x7EC4;&#x53BB;&#x91CD;">&#x6570;&#x7EC4;&#x53BB;&#x91CD;</h4>
+<pre><code class="lang-js"><span class="hljs-comment">/*
+ * &#x53BB;&#x9664;&#x6570;&#x7EC4;&#x91CD;&#x590D;&#x6210;&#x5458;
+ * */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dedupe</span>(<span class="hljs-params">array</span>) </span>{
+  <span class="hljs-comment">// Array.from&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5C06;Set&#x7ED3;&#x6784;&#x8F6C;&#x4E3A;&#x6570;&#x7EC4;</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Array</span>.from(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>(array));
+}
+dedupe([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]) <span class="hljs-comment">// [1, 2, 3]</span>
+
+<span class="hljs-keyword">let</span> arr = [<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">let</span> unique = [...new <span class="hljs-built_in">Set</span>(arr)];
+<span class="hljs-comment">// unique  [2, 5, 2]</span>
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="&#x590D;&#x5236;&#x6570;&#x7EC4;">&#x590D;&#x5236;&#x6570;&#x7EC4;</h4>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> names = [<span class="hljs-string">&apos;Luke&apos;</span>,<span class="hljs-string">&apos;Eva&apos;</span>,<span class="hljs-string">&apos;Phil&apos;</span>];
+<span class="hljs-keyword">const</span> copiedList = [...names]  
+<span class="hljs-built_in">console</span>.log(copiedList); <span class="hljs-comment">// [&apos;Luke&apos;,&apos;Eva&apos;,&apos;Phil&apos;]</span>
+
+
+<span class="hljs-comment">// &#x8FD9;&#x91CC;&#x590D;&#x5236;&#x7684;&#x662F;&#x5F15;&#x7528;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x53D1;&#x751F;&#x6539;&#x53D8;&#xFF0C;&#x90A3;&#x4E48;&#x53E6;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x4E5F;&#x76F8;&#x5E94;&#x5730;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x3002;</span>
+<span class="hljs-keyword">var</span> initialArray = [{name: <span class="hljs-string">&quot;Luke&quot;</span>}];
+<span class="hljs-keyword">var</span> copiedArray = [...initialArray];
+
+initialArray[<span class="hljs-number">0</span>][<span class="hljs-string">&apos;name&apos;</span>] = <span class="hljs-string">&apos;Mark&apos;</span>;
+<span class="hljs-built_in">console</span>.log(initialArray); <span class="hljs-comment">//Array [{&apos;name&apos;: &apos;Mark&apos;}]</span>
+<span class="hljs-built_in">console</span>.log(copiedArray); <span class="hljs-comment">//Array [{&apos;name&apos;: &apos;Mark&apos;}]</span>
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="&#x8FDE;&#x63A5;&#x6570;&#x7EC4;">&#x8FDE;&#x63A5;&#x6570;&#x7EC4;</h4>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> concatinated = [...names, ...names];
+<span class="hljs-built_in">console</span>.log(concatinated); 
+<span class="hljs-comment">// [&apos;Luke&apos;,&apos;Eva&apos;,&apos;Phil&apos;, &apos;Luke&apos;,&apos;Eva&apos;,&apos;Phil&apos;]</span>
+
+
+<span class="hljs-keyword">const</span> first = [<span class="hljs-string">&apos;Emily&apos;</span>, ...names];  
+<span class="hljs-built_in">console</span>.log(first); <span class="hljs-comment">// [&apos;Emily&apos;,&apos;Luke&apos;,&apos;Eva&apos;,&apos;Phil&apos;]</span>
+
+<span class="hljs-keyword">const</span> last = [...names, <span class="hljs-string">&apos;Emily&apos;</span>];  
+<span class="hljs-built_in">console</span>.log(last); <span class="hljs-comment">// [&apos;Luke&apos;,&apos;Eva&apos;,&apos;Phil&apos;, &apos;Emily&apos;]</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../5/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 第五章 解构：数据访问更便捷">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第六章 改进数组的功能","level":"1.7","depth":1,"previous":{"title":"第五章 解构：数据访问更便捷","level":"1.6","depth":1,"path":"5/index.md","ref":"5/index.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"深入理解ES6阅读笔记","language":"zh-hans","gitbook":"*","description":"深入理解ES6阅读笔记"},"file":{"path":"6/index.md","mtime":"2018-05-29T16:43:33.786Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-29T17:04:21.669Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

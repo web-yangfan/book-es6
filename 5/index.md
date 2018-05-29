@@ -1,3 +1,4 @@
+## 解构
 * 基本用法
 * 解构赋值
 * 默认值
@@ -6,6 +7,7 @@
 * 不定数组元素
 * 数组混合解构
 * 解构参数
+* 合并字面量对象
 
 ##### 1. 基本用法
 ``` js
@@ -30,6 +32,12 @@ let [ , , third] = colors;
 console.log(third); // green
 
 ```
+
+<br />
+
+
+-------
+
 ##### 2. 解构赋值
 ``` js
 // 解构赋值
@@ -64,6 +72,12 @@ console.log(a); // 2
 console.log(b); // 1
 
 ```
+
+<br />
+
+
+-------
+
 ##### 3. 默认值
 ``` js
 let node = {
@@ -84,6 +98,12 @@ let [ firstColor, second = "green"] = colors;
 console.log(firstColor); // red
 console.log(second); // green
 ```
+
+<br />
+
+
+-------
+
 ##### 4. 赋值变量起别名
 
 ``` js
@@ -98,6 +118,11 @@ console.log(localType);	// Identifier
 console.log(localName);	// foo
 console.log(localAge);	// 24
 ```
+
+<br />
+
+
+-------
 
 ##### 5. 嵌套解构
 ``` js
@@ -135,8 +160,15 @@ console.log(firstColor);   // red
 console.log(secondColor);  // green
 ```
 
+<br />
+
+
+-------
+
 
 #### 6. 不定数组元素
+
+
 ``` js
 let colors = ['red', 'green', 'grey', 'blue'];
 
@@ -154,7 +186,17 @@ let [ ...secondColor] = colors;
 console.log(secondColor); // ["red", "green", "grey", "blue"]	
 ```
 
+<br />
+
+
+-------
+
+
 ##### 7. 数组混合解构
+
+
+
+
 
 ``` js
 let node = {
@@ -181,7 +223,13 @@ console.log(start.column); // 1
 console.log(startIndex);   // 0
 ```
 
+<br />
+
+
+-------
+
 #### 8. 解构参数
+
 ``` js
 function setCookie(name, vlaue, { secure, path, domain, expires}) {
 	console.log(name);   // type
@@ -196,5 +244,40 @@ setCookie('type', 'js', {
 	secure: true,
 	expires: 60000
 });
+```
+
+<br />
+
+
+-------
+
+#### 9. 合并字面量对象
+
+
+``` js
+
+const nameAndAge = {  
+      name: 'Luke',
+      age: 24
+    }
+ 
+    const about = {  
+      work: 'Developer',
+      hobby: 'Skydiving'
+    }
+// 接下来用 spread syntax 把两个对象合并到一起
+const person = {  
+      ...nameAndAge,
+      ...about
+    }
+ 
+    console.log(person);  
+    //{
+    //  "age": 24,
+    //  "hobby": "Skydiving",
+    //  "name": "Luke",
+    //  "work": "Developer"
+    //}
+
 ```
 

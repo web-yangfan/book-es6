@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>第四章 解构功能 · 深入理解ES6阅读笔记</title>
+        <title>第五章 解构：数据访问更便捷 · 深入理解ES6阅读笔记</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="../6/" />
     
-    <link rel="prev" href="../four/" />
+    
+    <link rel="prev" href="../4/" />
     
 
     </head>
@@ -100,9 +102,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../one/">
+        <li class="chapter " data-level="1.2" data-path="../1/">
             
-                <a href="../one/">
+                <a href="../1/">
             
                     
                     第一章 块级作用域
@@ -113,22 +115,22 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" >
+        <li class="chapter " data-level="1.3" data-path="../2/">
             
-                <span>
+                <a href="../2/">
             
                     
-                    第二章 字符串和正则表达式
+                    第二章 字符串
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../three/">
+        <li class="chapter " data-level="1.4" data-path="../3/">
             
-                <a href="../three/">
+                <a href="../3/">
             
                     
                     第三章 函数
@@ -139,9 +141,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../four/">
+        <li class="chapter " data-level="1.5" data-path="../4/">
             
-                <a href="../four/">
+                <a href="../4/">
             
                     
                     第四章 扩展对象的功能性
@@ -157,7 +159,20 @@
                 <a href="./">
             
                     
-                    第四章 解构功能
+                    第五章 解构：数据访问更便捷
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../6/">
+            
+                <a href="../6/">
+            
+                    
+                    第六章 改进数组的功能
             
                 </a>
             
@@ -195,7 +210,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >第四章 解构功能</a>
+        <a href=".." >第五章 解构：数据访问更便捷</a>
     </h1>
 </div>
 
@@ -210,7 +225,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <ul>
+                                <h2 id="&#x89E3;&#x6784;">&#x89E3;&#x6784;</h2>
+<ul>
 <li>&#x57FA;&#x672C;&#x7528;&#x6CD5;</li>
 <li>&#x89E3;&#x6784;&#x8D4B;&#x503C;</li>
 <li>&#x9ED8;&#x8BA4;&#x503C;</li>
@@ -219,6 +235,7 @@
 <li>&#x4E0D;&#x5B9A;&#x6570;&#x7EC4;&#x5143;&#x7D20;</li>
 <li>&#x6570;&#x7EC4;&#x6DF7;&#x5408;&#x89E3;&#x6784;</li>
 <li>&#x89E3;&#x6784;&#x53C2;&#x6570;</li>
+<li>&#x5408;&#x5E76;&#x5B57;&#x9762;&#x91CF;&#x5BF9;&#x8C61;</li>
 </ul>
 <h5 id="1-&#x57FA;&#x672C;&#x7528;&#x6CD5;">1. &#x57FA;&#x672C;&#x7528;&#x6CD5;</h5>
 <pre><code class="lang-js"><span class="hljs-comment">// &#x5BF9;&#x8C61;&#x89E3;&#x6784;</span>
@@ -241,6 +258,8 @@
 <span class="hljs-keyword">let</span> [ , , third] = colors;
 <span class="hljs-built_in">console</span>.log(third); <span class="hljs-comment">// green</span>
 </code></pre>
+<p><br></p>
+<hr>
 <h5 id="2-&#x89E3;&#x6784;&#x8D4B;&#x503C;">2. &#x89E3;&#x6784;&#x8D4B;&#x503C;</h5>
 <pre><code class="lang-js"><span class="hljs-comment">// &#x89E3;&#x6784;&#x8D4B;&#x503C;</span>
 <span class="hljs-keyword">let</span> node = {
@@ -273,6 +292,8 @@ name = <span class="hljs-string">&apos;peter&apos;</span>;
 <span class="hljs-built_in">console</span>.log(a); <span class="hljs-comment">// 2</span>
 <span class="hljs-built_in">console</span>.log(b); <span class="hljs-comment">// 1</span>
 </code></pre>
+<p><br></p>
+<hr>
 <h5 id="3-&#x9ED8;&#x8BA4;&#x503C;">3. &#x9ED8;&#x8BA4;&#x503C;</h5>
 <pre><code class="lang-js"><span class="hljs-keyword">let</span> node = {
     type: <span class="hljs-string">&apos;Identifier&apos;</span>,
@@ -292,6 +313,8 @@ name = <span class="hljs-string">&apos;peter&apos;</span>;
 <span class="hljs-built_in">console</span>.log(firstColor); <span class="hljs-comment">// red</span>
 <span class="hljs-built_in">console</span>.log(second); <span class="hljs-comment">// green</span>
 </code></pre>
+<p><br></p>
+<hr>
 <h5 id="4-&#x8D4B;&#x503C;&#x53D8;&#x91CF;&#x8D77;&#x522B;&#x540D;">4. &#x8D4B;&#x503C;&#x53D8;&#x91CF;&#x8D77;&#x522B;&#x540D;</h5>
 <pre><code class="lang-js"><span class="hljs-keyword">let</span> node = {
     type: <span class="hljs-string">&apos;Identifier&apos;</span>,
@@ -304,6 +327,8 @@ name = <span class="hljs-string">&apos;peter&apos;</span>;
 <span class="hljs-built_in">console</span>.log(localName);    <span class="hljs-comment">// foo</span>
 <span class="hljs-built_in">console</span>.log(localAge);    <span class="hljs-comment">// 24</span>
 </code></pre>
+<p><br></p>
+<hr>
 <h5 id="5-&#x5D4C;&#x5957;&#x89E3;&#x6784;">5. &#x5D4C;&#x5957;&#x89E3;&#x6784;</h5>
 <pre><code class="lang-js"><span class="hljs-keyword">let</span> node = {
     type: <span class="hljs-string">&apos;Identifier&apos;</span>,
@@ -338,6 +363,8 @@ name = <span class="hljs-string">&apos;peter&apos;</span>;
 <span class="hljs-built_in">console</span>.log(firstColor);   <span class="hljs-comment">// red</span>
 <span class="hljs-built_in">console</span>.log(secondColor);  <span class="hljs-comment">// green</span>
 </code></pre>
+<p><br></p>
+<hr>
 <h4 id="6-&#x4E0D;&#x5B9A;&#x6570;&#x7EC4;&#x5143;&#x7D20;">6. &#x4E0D;&#x5B9A;&#x6570;&#x7EC4;&#x5143;&#x7D20;</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">let</span> colors = [<span class="hljs-string">&apos;red&apos;</span>, <span class="hljs-string">&apos;green&apos;</span>, <span class="hljs-string">&apos;grey&apos;</span>, <span class="hljs-string">&apos;blue&apos;</span>];
 
@@ -354,6 +381,8 @@ name = <span class="hljs-string">&apos;peter&apos;</span>;
 
 <span class="hljs-built_in">console</span>.log(secondColor); <span class="hljs-comment">// [&quot;red&quot;, &quot;green&quot;, &quot;grey&quot;, &quot;blue&quot;]</span>
 </code></pre>
+<p><br></p>
+<hr>
 <h5 id="7-&#x6570;&#x7EC4;&#x6DF7;&#x5408;&#x89E3;&#x6784;">7. &#x6570;&#x7EC4;&#x6DF7;&#x5408;&#x89E3;&#x6784;</h5>
 <pre><code class="lang-js"><span class="hljs-keyword">let</span> node = {
     type: <span class="hljs-string">&apos;Identifier&apos;</span>,
@@ -378,6 +407,8 @@ name = <span class="hljs-string">&apos;peter&apos;</span>;
 <span class="hljs-built_in">console</span>.log(start.column); <span class="hljs-comment">// 1</span>
 <span class="hljs-built_in">console</span>.log(startIndex);   <span class="hljs-comment">// 0</span>
 </code></pre>
+<p><br></p>
+<hr>
 <h4 id="8-&#x89E3;&#x6784;&#x53C2;&#x6570;">8. &#x89E3;&#x6784;&#x53C2;&#x6570;</h4>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setCookie</span>(<span class="hljs-params">name, vlaue, { secure, path, domain, expires}</span>) </span>{
     <span class="hljs-built_in">console</span>.log(name);   <span class="hljs-comment">// type</span>
@@ -392,6 +423,33 @@ setCookie(<span class="hljs-string">&apos;type&apos;</span>, <span class="hljs-s
     secure: <span class="hljs-literal">true</span>,
     expires: <span class="hljs-number">60000</span>
 });
+</code></pre>
+<p><br></p>
+<hr>
+<h4 id="9-&#x5408;&#x5E76;&#x5B57;&#x9762;&#x91CF;&#x5BF9;&#x8C61;">9. &#x5408;&#x5E76;&#x5B57;&#x9762;&#x91CF;&#x5BF9;&#x8C61;</h4>
+<pre><code class="lang-js">
+<span class="hljs-keyword">const</span> nameAndAge = {  
+      name: <span class="hljs-string">&apos;Luke&apos;</span>,
+      age: <span class="hljs-number">24</span>
+    }
+
+    <span class="hljs-keyword">const</span> about = {  
+      work: <span class="hljs-string">&apos;Developer&apos;</span>,
+      hobby: <span class="hljs-string">&apos;Skydiving&apos;</span>
+    }
+<span class="hljs-comment">// &#x63A5;&#x4E0B;&#x6765;&#x7528; spread syntax &#x628A;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x5408;&#x5E76;&#x5230;&#x4E00;&#x8D77;</span>
+<span class="hljs-keyword">const</span> person = {  
+      ...nameAndAge,
+      ...about
+    }
+
+    <span class="hljs-built_in">console</span>.log(person);  
+    <span class="hljs-comment">//{</span>
+    <span class="hljs-comment">//  &quot;age&quot;: 24,</span>
+    <span class="hljs-comment">//  &quot;hobby&quot;: &quot;Skydiving&quot;,</span>
+    <span class="hljs-comment">//  &quot;name&quot;: &quot;Luke&quot;,</span>
+    <span class="hljs-comment">//  &quot;work&quot;: &quot;Developer&quot;</span>
+    <span class="hljs-comment">//}</span>
 </code></pre>
 
                                 
@@ -420,10 +478,14 @@ setCookie(<span class="hljs-string">&apos;type&apos;</span>, <span class="hljs-s
 
             
                 
-                <a href="../four/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 第四章 扩展对象的功能性">
+                <a href="../4/" class="navigation navigation-prev " aria-label="Previous page: 第四章 扩展对象的功能性">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="../6/" class="navigation navigation-next " aria-label="Next page: 第六章 改进数组的功能">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -432,7 +494,7 @@ setCookie(<span class="hljs-string">&apos;type&apos;</span>, <span class="hljs-s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"第四章 解构功能","level":"1.6","depth":1,"previous":{"title":"第四章 扩展对象的功能性","level":"1.5","depth":1,"path":"four/index.md","ref":"four/index.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"深入理解ES6阅读笔记","language":"zh-hans","gitbook":"*","description":"深入理解ES6阅读笔记"},"file":{"path":"five/index.md","mtime":"2018-05-25T16:01:00.960Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-25T16:00:05.536Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"第五章 解构：数据访问更便捷","level":"1.6","depth":1,"next":{"title":"第六章 改进数组的功能","level":"1.7","depth":1,"path":"6/index.md","ref":"6/index.md","articles":[]},"previous":{"title":"第四章 扩展对象的功能性","level":"1.5","depth":1,"path":"4/index.md","ref":"4/index.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"深入理解ES6阅读笔记","language":"zh-hans","gitbook":"*","description":"深入理解ES6阅读笔记"},"file":{"path":"5/index.md","mtime":"2018-05-29T16:52:06.724Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-29T17:04:21.669Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
